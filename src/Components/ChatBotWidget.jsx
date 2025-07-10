@@ -348,7 +348,7 @@ const ChatBotWidget = () => {
                   color: "#D1D1E2",
                   fontSize: 15,
                   fontFamily: 'inherit',
-                  minHeight: 20,
+                  minHeight: "10%",
                   overflow: 'hidden', // Hide scroll bar
                 }}
                 disabled={loading}

@@ -340,7 +340,7 @@ const ChatBotWidget = () => {
                   alignItems: 'center',
                   justifyContent: 'flex-start',
                   color: 'rgba(209, 209, 226, 0.5)',
-                  fontSize: 9,
+                  fontSize: 10,
                   pointerEvents: 'none',
                   fontFamily: 'inherit',
                   textAlign: 'left',
@@ -383,34 +383,19 @@ const ChatBotWidget = () => {
                 onClick={handleSend}
                 disabled={loading || !input.trim()}
                 style={{
-                  background: loading || !input.trim() 
-                    ? "rgba(142, 84, 247, 0.3)"
-                    : "linear-gradient(135deg, rgba(142, 84, 247, 1), rgba(142, 84, 247, 0.8))",
+                  background: 'transparent',
                   color: "#fff",
-                  border: "none",
-                  borderRadius: 12,
+                  border: 'none',
+                  borderRadius: 0,
                   padding: "10px 16px",
                   fontWeight: 600,
                   fontSize: 14,
                   cursor: loading || !input.trim() ? "not-allowed" : "pointer",
                   transition: "all 0.2s ease",
-                  boxShadow: loading || !input.trim() 
-                    ? "none"
-                    : "0 4px 12px rgba(142, 84, 247, 0.4)",
+                  boxShadow: 'none',
                   minWidth: 60
                 }}
-                onMouseOver={(e) => {
-                  if (!loading && input.trim()) {
-                    e.target.style.transform = "translateY(-1px)";
-                    e.target.style.boxShadow = "0 6px 16px rgba(142, 84, 247, 0.5)";
-                  }
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.transform = "translateY(0)";
-                  e.target.style.boxShadow = loading || !input.trim() 
-                    ? "none"
-                    : "0 4px 12px rgba(142, 84, 247, 0.4)";
-                }}
+                
               >
                 {loading ? "..." : <IoSend size={16} />}
               </button>

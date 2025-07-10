@@ -176,7 +176,7 @@ const ChatBotWidget = () => {
     }}>
       {open ? (
         <div ref={chatBoxRef} style={{
-          width: 380,
+          width: 300,
           height: 500,
           background: "linear-gradient(135deg, rgba(142, 84, 247, 0.15), rgba(51, 46, 108, 0.25), rgba(0, 0, 0, 0.95))",
           borderRadius: 24,
@@ -325,8 +325,30 @@ const ChatBotWidget = () => {
               background: "rgba(51, 46, 108, 0.3)",
               borderRadius: 16,
               padding: "12px",
-              border: "1px solid rgba(142, 84, 247, 0.3)"
+              border: "1px solid rgba(142, 84, 247, 0.3)",
+              position: 'relative', // Needed for absolute placeholder
             }}>
+              {/* Custom Placeholder */}
+              {input.length === 0 && !loading && (
+                <span style={{
+                  position: 'absolute',
+                  left: 0,
+                  right: 60, // leave space for send button
+                  top: 0,
+                  bottom: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'rgba(209, 209, 226, 0.6)',
+                  fontSize: 15,
+                  pointerEvents: 'none',
+                  fontFamily: 'inherit',
+                  textAlign: 'center',
+                  zIndex: 1,
+                }}>
+                  Ask me anything about Excollo...
+                </span>
+              )}
               <textarea
                 ref={textareaRef}
                 value={input}
@@ -338,7 +360,6 @@ const ChatBotWidget = () => {
                   }
                 }}
                 onKeyDown={handleKeyDown}
-                placeholder="Ask me anything about Excollo..."
                 rows={1}
                 style={{
                   flex: 1,

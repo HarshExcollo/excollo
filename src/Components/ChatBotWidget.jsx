@@ -340,7 +340,7 @@ const ChatBotWidget = () => {
                   alignItems: 'center',
                   justifyContent: 'flex-start',
                   color: 'rgba(209, 209, 226, 0.5)',
-                  fontSize: 14,
+                  fontSize: 9,
                   pointerEvents: 'none',
                   fontFamily: 'inherit',
                   textAlign: 'left',

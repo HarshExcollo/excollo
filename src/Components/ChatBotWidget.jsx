@@ -154,8 +154,12 @@ const ChatBotWidget = () => {
 
   useEffect(() => {
     if (textareaRef.current) {
-      textareaRef.current.style.height = '20px';
-      textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
+      if (input.length === 0) {
+        textareaRef.current.style.height = '20px';
+      } else {
+        textareaRef.current.style.height = '20px';
+        textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
+      }
     }
   }, [input]);
 
@@ -332,23 +336,21 @@ const ChatBotWidget = () => {
               {input.length === 0 && !loading && (
                 <span style={{
                   position: 'absolute',
-                  left: 12,
-                  right: 72, // leave space for send button and padding
+                  left: 27,
+                  right: 0,
                   top: 0,
                   bottom: 0,
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'flex-start',
+                  alignItems: 'center', // vertical center
+                  justifyContent: 'flex-start', // horizontal left
                   color: 'rgba(255, 255, 255, 0.27)',
                   fontSize: 11,
                   pointerEvents: 'none',
                   fontFamily: 'inherit',
                   textAlign: 'left',
                   zIndex: 1,
-                  whiteSpace: 'nowrap',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
-                  height: '100%',
                 }}>
                   Ask me anything about Excollo...
                 </span>
@@ -358,10 +360,7 @@ const ChatBotWidget = () => {
                 value={input}
                 onChange={e => {
                   setInput(e.target.value);
-                  if (textareaRef.current) {
-                    textareaRef.current.style.height = '10px'; // Reset height
-                    textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px'; // Set to scrollHeight
-                  }
+                  // Height logic moved to useEffect
                 }}
                 onKeyDown={handleKeyDown}
                 rows={1}
@@ -376,6 +375,7 @@ const ChatBotWidget = () => {
                   fontFamily: 'inherit',
                   minHeight: "10%",
                   overflow: 'hidden', // Hide scroll bar
+                  padding: '12px 16px',
                 }}
                 disabled={loading}
               />

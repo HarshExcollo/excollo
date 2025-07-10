@@ -339,8 +339,8 @@ const ChatBotWidget = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'flex-start',
-                  color: 'rgba(209, 209, 226, 0.5)',
-                  fontSize: 10,
+                  color: 'rgba(255, 255, 255, 0.27)',
+                  fontSize: 11,
                   pointerEvents: 'none',
                   fontFamily: 'inherit',
                   textAlign: 'left',
@@ -359,7 +359,7 @@ const ChatBotWidget = () => {
                 onChange={e => {
                   setInput(e.target.value);
                   if (textareaRef.current) {
-                    textareaRef.current.style.height = '20px'; // Reset height
+                    textareaRef.current.style.height = '10px'; // Reset height
                     textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px'; // Set to scrollHeight
                   }
                 }}

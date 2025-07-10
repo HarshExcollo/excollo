@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@mui/material";
 import { IoChatbubble } from "react-icons/io5";
+import { IoSend } from "react-icons/io5";
 import ExcolloLogo from '../assets/logo/ExcolloWebsiteLogo.png';
 
 function generateUUID() {
@@ -14,16 +15,46 @@ function generateUUID() {
 const WEBHOOK_URL = "https://n8n-excollo.azurewebsites.net/webhook/196ada2d-956f-4c92-a3f6-ce59e1e254ce";
 const SESSION_KEY = "excollo_chat_session_id";
 
+// Utility to strip markdown
+function stripMarkdown(text) {
+  // Remove code blocks
+  text = text.replace(/```[\s\S]*?```/g, '');
+  // Remove inline code
+  text = text.replace(/`([^`]+)`/g, '$1');
+  // Remove bold/italic/strikethrough
+  text = text.replace(/([*_~]{1,3})(\S.*?\S)\1/g, '$2');
+  // Remove links but keep text
+  text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1');
+  // Remove images
+  text = text.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '');
+  // Remove headings
+  text = text.replace(/^#+\s/gm, '');
+  // Remove blockquotes
+  text = text.replace(/^>\s?/gm, '');
+  // Remove unordered/ordered list markers
+  text = text.replace(/^\s*[-*+]\s+/gm, '');
+  text = text.replace(/^\s*\d+\.\s+/gm, '');
+  return text;
+}
+
+function formatBotMessage(text) {
+  // Strip markdown first
+  let plain = stripMarkdown(text);
+  // Replace newlines with <br />
+  return plain.replace(/\n/g, '<br />');
+}
+
 const ChatBotWidget = () => {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { from: "bot", text: "Hi! I'm Excollo's AI assistant. How can I help you today?" },
+    { from: "bot", text: "Hi! I'm Harsh. How can I help you today?" },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [sessionId, setSessionId] = useState("");
   const messagesEndRef = useRef(null);
   const chatBoxRef = useRef(null);
+  const textareaRef = useRef(null); // Add ref for textarea
 
   useEffect(() => {
     if (open) {
@@ -121,6 +152,13 @@ const ChatBotWidget = () => {
     }
   }, [messages]);
 
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = '20px';
+      textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
+    }
+  }, [input]);
+
   const handleKeyDown = (event) => {
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
@@ -139,7 +177,7 @@ const ChatBotWidget = () => {
       {open ? (
         <div ref={chatBoxRef} style={{
           width: 380,
-          height: 600,
+          height: 600, // Fixed height
           background: "linear-gradient(135deg, rgba(142, 84, 247, 0.15), rgba(51, 46, 108, 0.25), rgba(0, 0, 0, 0.95))",
           borderRadius: 24,
           boxShadow: "0 25px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(142, 84, 247, 0.3)",
@@ -210,7 +248,7 @@ const ChatBotWidget = () => {
           <div style={{
             flex: 1,
             padding: "24px",
-            overflowY: "auto",
+            overflowY: "auto", // Ensure messages area scrolls
             background: "linear-gradient(135deg, #181828 0%, #10101a 100%)",
             color: "#fff",
             fontSize: 15,
@@ -247,7 +285,9 @@ const ChatBotWidget = () => {
                     fontFamily: 'Inter, sans-serif',
                   }}
                 >
-                  {msg.text}
+                  {msg.from === 'bot'
+                    ? <span dangerouslySetInnerHTML={{ __html: formatBotMessage(msg.text) }} />
+                    : msg.text}
                 </div>
               </div>
             ))}
@@ -288,8 +328,15 @@ const ChatBotWidget = () => {
               border: "1px solid rgba(142, 84, 247, 0.3)"
             }}>
               <textarea
+                ref={textareaRef}
                 value={input}
-                onChange={e => setInput(e.target.value)}
+                onChange={e => {
+                  setInput(e.target.value);
+                  if (textareaRef.current) {
+                    textareaRef.current.style.height = '20px'; // Reset height
+                    textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px'; // Set to scrollHeight
+                  }
+                }}
                 onKeyDown={handleKeyDown}
                 placeholder="Ask me anything about Excollo..."
                 rows={1}
@@ -303,7 +350,8 @@ const ChatBotWidget = () => {
                   fontSize: 15,
                   fontFamily: 'inherit',
                   minHeight: 20,
-                  maxHeight: 80
+                  maxHeight: 120, // Prevent input from growing too large
+                  overflow: 'hidden', // Hide scroll bar
                 }}
                 disabled={loading}
               />
@@ -340,7 +388,7 @@ const ChatBotWidget = () => {
                     : "0 4px 12px rgba(142, 84, 247, 0.4)";
                 }}
               >
-                {loading ? "..." : "Send"}
+                {loading ? "..." : <IoSend size={16} />}
               </button>
             </div>
             <div style={{

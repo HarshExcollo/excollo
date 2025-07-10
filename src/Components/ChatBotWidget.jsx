@@ -176,7 +176,7 @@ const ChatBotWidget = () => {
     }}>
       {open ? (
         <div ref={chatBoxRef} style={{
-          width: "100%",
+          width: "80%",
           minHeight: "20%",
           background: "linear-gradient(135deg, rgba(142, 84, 247, 0.15), rgba(51, 46, 108, 0.25), rgba(0, 0, 0, 0.95))",
           borderRadius: 24,

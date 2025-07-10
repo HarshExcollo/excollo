@@ -177,7 +177,6 @@ const ChatBotWidget = () => {
       {open ? (
         <div ref={chatBoxRef} style={{
           width: "20%",
-          height: "400",
           background: "linear-gradient(135deg, rgba(142, 84, 247, 0.15), rgba(51, 46, 108, 0.25), rgba(0, 0, 0, 0.95))",
           borderRadius: 24,
           boxShadow: "0 25px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(142, 84, 247, 0.3)",
@@ -350,7 +349,6 @@ const ChatBotWidget = () => {
                   fontSize: 15,
                   fontFamily: 'inherit',
                   minHeight: 20,
-                  maxHeight: 120, // Prevent input from growing too large
                   overflow: 'hidden', // Hide scroll bar
                 }}
                 disabled={loading}

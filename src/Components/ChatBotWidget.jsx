@@ -176,8 +176,8 @@ const ChatBotWidget = () => {
     }}>
       {open ? (
         <div ref={chatBoxRef} style={{
-          width: 300,
-          height: 500,
+          width: '25vw',
+          height: '70vh',
           background: "linear-gradient(135deg, rgba(142, 84, 247, 0.15), rgba(51, 46, 108, 0.25), rgba(0, 0, 0, 0.95))",
           borderRadius: 24,
           boxShadow: "0 25px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(142, 84, 247, 0.3)",
@@ -332,19 +332,23 @@ const ChatBotWidget = () => {
               {input.length === 0 && !loading && (
                 <span style={{
                   position: 'absolute',
-                  left: 0,
-                  right: 60, // leave space for send button
+                  left: 12,
+                  right: 72, // leave space for send button and padding
                   top: 0,
                   bottom: 0,
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'rgba(209, 209, 226, 0.6)',
-                  fontSize: 15,
+                  justifyContent: 'flex-start',
+                  color: 'rgba(209, 209, 226, 0.5)',
+                  fontSize: 14,
                   pointerEvents: 'none',
                   fontFamily: 'inherit',
-                  textAlign: 'center',
+                  textAlign: 'left',
                   zIndex: 1,
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  height: '100%',
                 }}>
                   Ask me anything about Excollo...
                 </span>

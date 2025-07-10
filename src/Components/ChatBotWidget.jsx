@@ -154,10 +154,8 @@ const ChatBotWidget = () => {
 
   useEffect(() => {
     if (textareaRef.current) {
-      if (input.length === 0) {
-        textareaRef.current.style.height = '20px';
-      } else {
-        textareaRef.current.style.height = '20px';
+      textareaRef.current.style.height = '24px'; // Always reset to single line first
+      if (textareaRef.current.scrollHeight > 24) {
         textareaRef.current.style.height = textareaRef.current.scrollHeight + 'px';
       }
     }
@@ -251,7 +249,7 @@ const ChatBotWidget = () => {
           {/* Messages */}
           <div style={{
             flex: 1,
-            padding: "24px",
+            padding: "16px",
             overflowY: "auto", // Ensure messages area scrolls
             background: "linear-gradient(135deg, #181828 0%, #10101a 100%)",
             color: "#fff",
@@ -263,7 +261,7 @@ const ChatBotWidget = () => {
               <div
                 key={i}
                 style={{
-                  marginBottom: 16,
+                  marginBottom: 10,
                   display: "flex",
                   justifyContent: msg.from === "user" ? "flex-end" : "flex-start",
                 }}
@@ -324,27 +322,26 @@ const ChatBotWidget = () => {
           }}>
             <div style={{
               display: "flex",
-              alignItems: "flex-end",
-              gap: 12,
+              alignItems: "center",
+              minHeight: 40, // uniform input bar height
               background: "rgba(51, 46, 108, 0.3)",
               borderRadius: 16,
-              padding: "12px",
+              padding: "8px",
               border: "1px solid rgba(142, 84, 247, 0.3)",
-              position: 'relative', // Needed for absolute placeholder
+              position: 'relative',
             }}>
               {/* Custom Placeholder */}
               {input.length === 0 && !loading && (
                 <span style={{
                   position: 'absolute',
-                  left: 27,
+                  left: 16,
                   right: 0,
                   top: 0,
                   bottom: 0,
                   display: 'flex',
-                  alignItems: 'center', // vertical center
-                  justifyContent: 'flex-start', // horizontal left
+                  alignItems: 'center',
                   color: 'rgba(255, 255, 255, 0.27)',
-                  fontSize: 11,
+                  fontSize: 15,
                   pointerEvents: 'none',
                   fontFamily: 'inherit',
                   textAlign: 'left',
@@ -358,10 +355,7 @@ const ChatBotWidget = () => {
               <textarea
                 ref={textareaRef}
                 value={input}
-                onChange={e => {
-                  setInput(e.target.value);
-                  // Height logic moved to useEffect
-                }}
+                onChange={e => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 rows={1}
                 style={{
@@ -373,9 +367,9 @@ const ChatBotWidget = () => {
                   color: "#D1D1E2",
                   fontSize: 15,
                   fontFamily: 'inherit',
-                  minHeight: "10%",
-                  overflow: 'hidden', // Hide scroll bar
-                  padding: '12px 16px',
+                  lineHeight: "24px",
+                  padding: "3px 6px",
+                  overflow: 'hidden',
                 }}
                 disabled={loading}
               />
@@ -387,17 +381,16 @@ const ChatBotWidget = () => {
                   color: "#fff",
                   border: 'none',
                   borderRadius: 0,
-                  padding: "10px 16px",
+                  padding: "8px 16px",
                   fontWeight: 600,
-                  fontSize: 14,
+                  fontSize: 16,
                   cursor: loading || !input.trim() ? "not-allowed" : "pointer",
                   transition: "all 0.2s ease",
                   boxShadow: 'none',
-                  minWidth: 60
+                  minWidth: 30
                 }}
-                
               >
-                {loading ? "..." : <IoSend size={16} />}
+                {loading ? "..." : <IoSend size={20} />}
               </button>
             </div>
             <div style={{

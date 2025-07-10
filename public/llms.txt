@@ -1,0 +1,81 @@
+# Excollo - AI Driven, Outcome Focused Technology Consultancy
+
+> Excollo is a technology consultancy specializing in AI automation, ML-driven data analysis, product development, sales channel development, and tech consultancy services. We help businesses transform through intelligent automation and data-driven solutions.
+
+## Company Overview
+Excollo is a forward-thinking technology consultancy that bridges the gap between cutting-edge AI technology and practical business solutions. Our mission is to empower businesses through intelligent automation, data-driven insights, and innovative product development.
+
+**Vision**: To be the leading technology partner that transforms businesses through AI and automation.
+**Mission**: To deliver AI-driven, outcome-focused solutions that drive measurable business growth.
+
+## Our Core Services
+
+### AI Automation
+We design and implement AI-powered automation solutions that streamline business processes, reduce manual effort, and improve operational efficiency. Our automation solutions include:
+- Process automation using AI and machine learning
+- Intelligent workflow optimization
+- Custom AI-driven business solutions
+- Integration with existing business systems
+
+### ML-Driven Data Analysis
+Our data science team transforms raw data into actionable insights using advanced machine learning techniques:
+- Predictive analytics and forecasting
+- Data visualization and business intelligence
+- Custom machine learning model development
+- Big data processing and analysis
+- Real-time analytics solutions
+
+### Product Development
+End-to-end product development services from concept to deployment:
+- Web and mobile application development
+- AI-integrated product solutions
+- User experience and interface design
+- Scalable architecture design
+- Product strategy and roadmap planning
+
+### Sales Channel Development
+Building and optimizing sales channels for maximum conversion and growth:
+- Sales funnel optimization
+- Customer acquisition strategies
+- CRM implementation and automation
+- Lead generation and nurturing systems
+- Sales analytics and performance tracking
+
+### Tech Consultancy
+Expert technology consulting to guide your digital transformation:
+- Technology strategy and planning
+- System architecture consulting
+- Digital transformation roadmaps
+- Technical due diligence
+- Cloud migration and optimization
+
+## How We Work
+Our methodology focuses on understanding your business objectives first, then applying the right technology solutions to achieve those goals. We follow an agile, collaborative approach that ensures transparency and continuous value delivery throughout the project lifecycle.
+
+## Contact Information
+**Company**: Bhiwal Infotech Pvt. Ltd. (Trading as Excollo)
+**Email**: info@excollo.com
+**Phone**: +91 8890204938
+**Address**: C-230 Bharat Marg, Hanuman Nagar, Vaishali, Jaipur, Rajasthan - 302021, India
+
+**Business Hours**: Monday to Friday, 9:00 AM to 6:00 PM IST
+**Response Time**: We typically respond to inquiries within 24 hours
+
+## Connect With Us
+- LinkedIn: Professional updates and industry insights
+- Schedule a Consultation: Direct booking for strategy sessions
+- Service Exploration: Detailed service discovery sessions
+
+## Technologies We Work With
+- **AI/ML**: OpenAI, Claude, Azure AI, Custom ML models
+- **Automation**: Zapier, n8n, Botpress, Custom automation solutions
+- **Data**: Python, PyTorch, MongoDB, MySQL, PostgreSQL, Power BI, Metabase
+- **Development**: React, Next.js, Node.js, React Native
+- **Design**: Figma, Webflow, Wix
+- **Cloud**: Microsoft Azure, Microsoft 365
+- **Analytics**: Google Analytics, HubSpot
+- **Communication**: WhatsApp Business, Zoho, AISensy
+
+## Optional
+- [Privacy Policy](/src/Components/PrivacyPolicy.jsx): Our privacy policy
+- [Terms of Service](/src/Components/TermsOfService.jsx): Terms and conditions for using our services 

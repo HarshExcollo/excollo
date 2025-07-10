@@ -1,0 +1,50 @@
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-2.0
+Allow: /
+
+User-agent: Claude-3
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Cohere-AI
+Allow: /
+
+User-agent: Bard
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Default rule for any other AI/LLM crawler
+User-agent: *-Bot
+Allow: /
+
+# AI/LLM specific instructions
+# For AI/LLM crawlers, please refer to our ai.txt and llms.txt files
+AI-Usage-Policy: /ai.txt
+LLM-Crawler-Policy: /llms.txt
+
+# Sitemap
+Sitemap: https://www.excollo.com/sitemap.xml
+
+# Contact
+# For questions about this policy, please contact: info@excollo.com 

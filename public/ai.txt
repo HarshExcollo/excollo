@@ -1,0 +1,35 @@
+Permission: ALLOW-AI-TRAINING
+Permission: ALLOW-AI-INFERENCE
+Permission: REQUIRE-CITATION
+Permission: ALLOW-AI-INDEX
+AI-Feedback-Email: info@excollo.com
+
+# AI Usage Policy for Excollo
+# Last Updated: 2024
+
+# Training
+# AI systems are permitted to use content from this website for training purposes.
+training: allow
+
+# Inference
+# AI systems are permitted to use content from this website for inference.
+inference: allow
+
+# Citation
+# When AI systems use our content in responses, proper citation to Excollo is required.
+citation: require
+
+# Indexing
+# AI systems are permitted to index our content for search and retrieval purposes.
+indexing: allow
+
+# Content Licensing
+# Content on this website is subject to standard copyright protections.
+# AI systems must respect these rights when using our content.
+
+# Related Files
+# For structured content optimized for LLMs, see our llms.txt file
+llms-content: /llms.txt
+
+# Contact Information
+# For questions about this AI policy, please contact: info@excollo.com 

@@ -1,0 +1,44 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Excollo",
+  "url": "https://www.excollo.com",
+  "logo": "https://www.excollo.com/ExcolloWebsiteLogo.png",
+  "description": "AI Driven. Outcome Focused. Excollo provides AI automation, ML-driven data analysis, product development, sales channel development, and tech consultancy services.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-8890204938",
+    "contactType": "customer service",
+    "email": "info@excollo.com"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "C-230 Bharat Marg, Hanuman Nagar, Vaishali",
+    "addressLocality": "Jaipur",
+    "addressRegion": "Rajasthan",
+    "postalCode": "302021",
+    "addressCountry": "IN"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/excollo/"
+  ],
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.excollo.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.excollo.com"
+  },
+  "aiContent": {
+    "@type": "WebContent",
+    "allowsTraining": true,
+    "allowsInference": true,
+    "requiresCitation": true,
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "info@excollo.com"
+    }
+  }
+} 
